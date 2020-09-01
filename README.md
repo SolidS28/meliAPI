@@ -18,6 +18,8 @@ USER - db username
 PASS - db password
 SCHEMA - db schema
 
+An example .env file is in the root directory.
+
 In the challenge directory there is a init.sql file to set up the database
 
 
@@ -28,7 +30,7 @@ I could not integrate all the services in one single Dockerfile
 
 ### Fetch Data
 
-![Model](img/process.png)
+![Process](img/Process.png)
 
 ### Database Model
 
@@ -40,7 +42,7 @@ I could not integrate all the services in one single Dockerfile
 -   Api Gateway
 -   Item Service
 
-![Model](img/Components.png)
+![Components](img/Components.png)
 
 ### Technologies
  - Java 8
