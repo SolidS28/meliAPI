@@ -1,0 +1,24 @@
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka
+spring:
+  application:
+    name: ApiGateway
+  cloud.gateway:
+    discovery:
+      locator:
+        enabled: true
+        lowerCaseServiceId: true
+    routes:
+    - id: items
+      uri: lb://CHALLENGE-ITEMS
+      predicates:
+        - Path=/items/**
+    - id: health
+      uri: lb://CHALLENGE-ITEMS
+      predicates:
+        - Path=/health
+       
