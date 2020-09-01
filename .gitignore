@@ -177,3 +177,5 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,windows,macos,linux,maven
+challenge/mvnw
+challenge/mvnw.cmd
