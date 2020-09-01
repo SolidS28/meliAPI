@@ -58,4 +58,10 @@ I could not integrate all the services in one single Dockerfile
   - Implement a queue and a service to separate the persist the data task
   - Add a API documentation generator like Swagger
   - User kubernetes to package the application into a Pod
+  - Implement Hystrix to manage fault tolerance
 
+## Assumptions
+ - Health metrics are not updated on real time
+ - There is only a database server
+ - The children API responds an empty array if there are not children elements
+ - A single Dockerfile should contain all the application
