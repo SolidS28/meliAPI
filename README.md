@@ -18,6 +18,7 @@ USER - db username
 PASS - db password
 SCHEMA - db schema
 
+An example .env file is in the root directory.
 run in the "challenge" directory the "mvn install" command to generate the application jar files
 
 In the challenge directory there is a init.sql file to set up the database
@@ -30,7 +31,7 @@ I could not integrate all the services in one single Dockerfile
 
 ### Fetch Data
 
-![Model](img/process.png)
+![Process](img/Process.png)
 
 ### Database Model
 
@@ -42,7 +43,7 @@ I could not integrate all the services in one single Dockerfile
 -   Api Gateway
 -   Item Service
 
-![Model](img/Components.png)
+![Components](img/Components.png)
 
 ### Technologies
  - Java 8
@@ -57,4 +58,10 @@ I could not integrate all the services in one single Dockerfile
   - Implement some monitoring tool to improve the performance and capacity of the health task like Prometheus
   - Add a API documentation generator like Swagger
   - User kubernetes to package the application into a Pod
+  - Implement Hystrix to manage fault tolerance
 
+## Assumptions
+ - Health metrics are not updated on real time
+ - There is only a database server
+ - The children API responds an empty array if there are not children elements
+ - A single Dockerfile should contain all the application
