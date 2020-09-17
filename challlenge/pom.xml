@@ -10,6 +10,7 @@
 	<modules>
 		<module>discovery-service</module>
 		<module>item-service</module>
+		<module>persistance-service</module>
 		<module>gateway-service</module>
 	</modules>
 

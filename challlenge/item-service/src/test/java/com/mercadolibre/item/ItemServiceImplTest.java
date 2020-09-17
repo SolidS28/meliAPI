@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.cache.CacheManager;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.mercadolibre.microitem.item.repository.ItemRepository;
@@ -18,6 +20,12 @@ public class ItemServiceImplTest {
 	@Mock
 	private ItemRepository itemRepositoryMock;
 	
+	@Mock
+	private CacheManager cacheManager;
+	
+	@Mock
+	private RabbitTemplate rabbitTemplate;
+	
 	private ItemService itemService;
 	
     @Before
@@ -27,7 +35,7 @@ public class ItemServiceImplTest {
     
     @Before
     public void init() {
-    	this.itemService = new ItemServiceImpl(webClientMock, itemRepositoryMock); 
+    	this.itemService = new ItemServiceImpl(webClientMock, itemRepositoryMock, cacheManager, rabbitTemplate); 
     }
 
 	@Test

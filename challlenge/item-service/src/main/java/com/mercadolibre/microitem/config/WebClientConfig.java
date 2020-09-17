@@ -15,12 +15,15 @@ import reactor.netty.tcp.TcpClient;
 
 @Configuration
 public class WebClientConfig {
+	
+	public static final long DEFAULT_MAX_RETRIES = 3L;
+	
 	@Bean
 	public WebClient webClient(WebClient.Builder webClientBuilder) {
 		TcpClient tcpClient = TcpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
 				.doOnConnected(connection -> {
-					connection.addHandlerLast(new ReadTimeoutHandler(5000, TimeUnit.MILLISECONDS));
-					connection.addHandlerLast(new WriteTimeoutHandler(5000, TimeUnit.MILLISECONDS));
+					connection.addHandlerLast(new ReadTimeoutHandler(3000, TimeUnit.MILLISECONDS));
+					connection.addHandlerLast(new WriteTimeoutHandler(3000, TimeUnit.MILLISECONDS));
 				});
 
 		return webClientBuilder.clientConnector(new ReactorClientHttpConnector(HttpClient.from(tcpClient))).build();

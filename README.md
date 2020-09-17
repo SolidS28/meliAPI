@@ -19,6 +19,7 @@ PASS - db password
 SCHEMA - db schema
 
 An example .env file is in the root directory.
+run in the "challenge" directory the "mvn install" command to generate the application jar files
 
 In the challenge directory there is a init.sql file to set up the database
 
@@ -50,12 +51,11 @@ I could not integrate all the services in one single Dockerfile
  - Spring (Cloud, Data, Actuator, Webflux)
  - Eureka
  - Postgres
+ - RabbitMQ
 
 ## Improvements that could be done
-  - Implement a cache to know if the item is in the DB to avoid unnecesary DB connections, in case of elastic scalability it's necessary to use a set of coordinated external caches
   - Implement a load balancer like Zuul
   - Implement some monitoring tool to improve the performance and capacity of the health task like Prometheus
-  - Implement a queue and a service to separate the persist the data task
   - Add a API documentation generator like Swagger
   - User kubernetes to package the application into a Pod
   - Implement Hystrix to manage fault tolerance
